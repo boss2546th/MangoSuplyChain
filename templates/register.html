@@ -1,0 +1,46 @@
+{% extends "layoutCustm.html" %}
+
+{% block content %}
+    <!-- Login/Register Page -->
+    <br>
+    <div id="login" class="container">
+      <h2 class="text-center">SignUp for free</h2>
+      <div class="d-flex justify-content-center">
+        <form  action="{{url_for('register')}}" method="POST">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Username" required>
+          </div>
+          <div class="mb-3">  
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+          </div>
+          <div class="mb-3">
+            <label for="Confirmpassword" class="form-label">Confirm Password</label>
+            <input type="password" name="Confirmpassword" class="form-control" placeholder="ConfirmPassword" required>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Create an account</button>
+          </div>
+        </form>
+      </div>
+      <p class="text-center">Already have an account? <a href="{{url_for('login')}}">Back to Login page.</a>.</p>
+    </div>
+  
+  
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+  
+  <style>
+    #login{
+        padding-top: 30px;
+        background-color: rgb(234, 230, 230);
+        width: 350px;
+        height: 450px;
+        border-radius: 15px;
+    }
+  
+  </style>
+  
+{% endblock %}

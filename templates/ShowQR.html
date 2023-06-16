@@ -1,0 +1,24 @@
+{% extends "layoutSaler.html" %}
+
+{%block content%}
+<div id="QR" class="container py-5">
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">QR code</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-success btn-lg">Download</a>
+          <a href="#" class="btn btn-outline-primary ms-1 btn-lg">Back</a>
+        </div>
+      </div>
+</div>
+
+<style>
+    #QR{
+        position: absolute;
+        left: 30%;
+        height: 500px;
+        align-items: center;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layoutCustm.html" %}
+
+{% block content %}
+  <!-- Home Page -->
+  <br><br>
+  <div class="container py-5">
+    <h1>Welcome To Mango Suply chain.</h1>
+  </div>
+  <div id="home">
+    <div class="d-grid gap-2 col-3 mx-auto">
+      <a class="ScanQR" href="{{url_for('ScanQR')}}" role="button">Scan QR code.</a>
+      <a class="Saler" href="{{url_for('login')}}" role="button">Saler click here.</a>  
+    </div>
+  </div>
+  <div class="right">
+  <div class="card" style="width: 18rem;">
+    <h5 class="card-header">Featured</h5>
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{Mango}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+
+<style>
+#home{
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  align-items: center;
+  background-color: darkturquoise;
+  height: 300px;
+  width: 500px;
+  padding-top:7%;
+  border-radius: 15px;
+}
+.right{
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+.ScanQR{
+  position: absolute;
+  left: 20%;
+  width: 300px;
+  height: 70px;
+  background-color: aquamarine;
+  text-align: center;
+  padding-top: 3%;
+  font-size: large;
+  color: black;
+  border-radius: 15px;
+}
+.Saler{
+  position: absolute;
+  left: 20%;
+  width: 300px;
+  height: 70px;
+  background-color: rgb(18, 19, 19);
+  text-align: center;
+  padding-top: 3%;
+  margin-top: 20%;
+  font-size: large;
+  color: gainsboro;
+  border-radius: 15px;
+}
+</style>
+{% endblock %}

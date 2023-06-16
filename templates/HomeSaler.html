@@ -1,0 +1,69 @@
+{% extends "layoutSaler.html" %}
+
+{% block content %}
+
+    <br>
+    <div class="container">
+    <a class="btn btn-labeled btn-success" href="{{url_for('NewProduct')}}" role="button">
+    <span class="btn-label"><i class="fa fa-plus"></i></span>Add New Product</a>
+    <div class="UserPro">
+        <h5 id = "username">{{crrnt_Username}}</h5>    
+        <a href="{{url_for('Profile')}}">
+        <img src="data:image/png;base64,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" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+        </a>
+    </div>
+    <br>
+    <br>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for Mango in Mangolist %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <h5 class="card-header">Featured</h5>
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{Mango}}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+<style>
+.btn-label {
+	position: relative;
+	left: -12px;
+	display: inline-block;
+	padding: 6px 12px;
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 3px 0 0 3px;
+}
+
+.btn-labeled {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.btn {
+	margin-bottom: 10px;
+}
+
+.UserPro{
+    position: absolute;
+    width: 40px;
+    top: 55px;
+    right: 2%;
+}
+
+#username{
+    position: absolute;
+    width: 45px;
+    top:15px;
+    right: 45px;
+    color: #b7a3a3;
+}
+
+</style>
+{% endblock %}

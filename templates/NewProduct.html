@@ -1,0 +1,33 @@
+{% extends "layoutSaler.html" %}
+
+
+{% block content %}
+<div class="container">
+  <h1 class="text-center">Product Source Form</h1>
+    <div class="d-flex justify-content-center"></div>
+    <form action="{{url_for('NewProduct')}}" method="POST">
+      <div class="mb-3">
+        <label for="product_name" class="form-label">Product Name</label>
+        <input type="text" class="form-control" id="product_name" name="product_name" required>
+      </div>
+      <div class="mb-3">
+        <label for="source_type" class="form-label">Source Type</label>
+        <select class="form-select" id="source_type" name="source_type" required>
+          <option value="">Select source type</option>
+          <option value="Manufacturer">Manufacturer</option>
+          <option value="Distributor">Distributor</option>
+          <option value="Wholesaler">Wholesaler</option>
+          <option value="Retailer">Retailer</option>
+          <option value="Supplier">Supplier</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="source_name" class="form-label">Source Name</label>
+        <input type="text" class="form-control" id="source_name" name="source_name" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+</div>
+{% endblock %}
