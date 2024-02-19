@@ -1,8 +1,17 @@
+<<<<<<< HEAD
+from flask import Flask, render_template, request, redirect, url_for, flash, url_for,session
+=======
 from flask import Flask, render_template, request, redirect, url_for, flash, url_for
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
+<<<<<<< HEAD
+from flask_session import Session
+
+=======
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
 
 #Form Class
 class Log_Reg_Form(FlaskForm):
@@ -11,13 +20,29 @@ class Log_Reg_Form(FlaskForm):
     submit = SubmitField('Submit')
 
 app  = Flask(__name__)
+<<<<<<< HEAD
+app.config['SECRET_KEY'] = "Test-Key"
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+=======
 app.config['SECRET_KEY'] = "Test-Key" 
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
 
 crrnt_Username = ''
 crrnt_Password = ''
 
+<<<<<<< HEAD
+Mangolist =  ['มะมวงอกร่อง','มะม่วงมัน','มะม่วงสุก','มะม่วงแรด']
+
 account = {'username':[],'password':[]}
 
+update = True
+
+=======
+account = {'username':[],'password':[]}
+
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
 @app.route('/')
 def HomeCustomer():
     crrnt_Username = ''
@@ -30,6 +55,10 @@ def login():
     global account
     global crrnt_Username
     global crrnt_Password
+<<<<<<< HEAD
+    global session
+=======
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
     if request.method == 'POST':
         # Create an object called "form" to use LoginForm class
         form = Log_Reg_Form()
@@ -45,8 +74,15 @@ def login():
             print(str(account['password'][account['username'].index(str(username))]))
             crrnt_Username = username
             crrnt_Password = password
+<<<<<<< HEAD
+            session["name"] = crrnt_Username
             return redirect(url_for('HomeSaler'))
         else:
+            print('fail login')
+=======
+            return redirect(url_for('HomeSaler'))
+        else:
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
             return redirect(url_for('login'))
 
     #method คือ GET
@@ -74,6 +110,10 @@ def register():
             account['password'].append(password)
             return redirect(url_for('login'))
         else:
+<<<<<<< HEAD
+            print('fail regiter')
+=======
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
             return redirect(url_for('register'))
 
     return render_template("register.html") 
@@ -81,6 +121,45 @@ def register():
 
 @app.route('/HomeSaler')
 def HomeSaler():
+<<<<<<< HEAD
+    global Mangolist
+    global update
+    global account
+    global crrnt_Username
+    global crrnt_Password
+    global session
+    if session["name"] == None:
+        return redirect("/")
+    
+    if update:
+        print(update)
+        print(Mangolist[-1])
+        update = False
+        return render_template("HomeSaler.html", Mangolist=Mangolist ,crrnt_Username=session["name"])
+
+    ##สมมมติเอาว่าเป็นงี้
+    #Mangolist =  ['มะมวงอกร่อง','มะม่วงมัน','มะม่วงสุก','มะม่วงแรด']
+
+    print(crrnt_Username)
+    return render_template("HomeSaler.html", Mangolist=Mangolist ,crrnt_Username=session["name"])
+
+@app.route('/Profile')
+def Profile():
+    
+    global account
+    global crrnt_Username
+    global session
+    if session["name"] == None:
+        return redirect("/")
+    return render_template("Profile.html",crrnt_Username=session["name"])
+
+@app.route('/NewProduct' ,methods=['GET', 'POST'])
+def NewProduct():
+    global session
+    global update
+    if session["name"] == None:
+        return redirect("/")
+=======
     global account
     global crrnt_Username
     global crrnt_Password
@@ -98,11 +177,17 @@ def Profile():
 
 @app.route('/NewProduct' ,methods=['GET', 'POST'])
 def NewProduct():
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
     if request.method == 'POST':
         product_name = request.form['product_name']
         source_type = request.form['source_type']
         source_name = request.form['source_name']
         # ดำเนินการเก็บข้อมูลในฐานข้อมูลหรือประมวลผลต่อไป
+<<<<<<< HEAD
+        Mangolist.append(product_name+' By : '+session["name"])
+        update = True
+=======
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
 
         print(product_name,source_type,source_name)
         return redirect(url_for('ShowQR'))
@@ -118,7 +203,24 @@ def ScanQR():
 
 @app.route('/ShowQR')
 def ShowQR():
+<<<<<<< HEAD
+    global session
+    if session["name"] == None:
+        return redirect("/")
     return render_template("ShowQR.html")
 
+@app.route("/logout")
+def logout():
+    session["name"] = None
+    global crrnt_Username
+    global crrnt_Password
+    crrnt_Username = ''
+    crrnt_Password = ''
+    return redirect("/")
+
+=======
+    return render_template("ShowQR.html")
+
+>>>>>>> e9666896916be3222315054f4c52795ea9a2160b
 if __name__ == "__main__":
     app.run(debug = True)
